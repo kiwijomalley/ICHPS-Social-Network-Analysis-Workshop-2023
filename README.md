@@ -12,9 +12,9 @@ WorkshopICHPS2023models.R: R Code for estimating statistical models of the netwo
 
 WorkshopICHPS2023grandpa.R: R Code for performing descriptive analyses, for estimating statistical models of the network itself, and for modeling peer associations for the physician network embedded in the grandpa package of Bobak et al (2022)
 
-ICHPS_ClinEdgeListBin.csv: Edgelist for the binary-valued directed physician clinic network
+ICHPS_ClinEdgeList.csv: Edgelist for the binary-valued directed physician clinic network
 
-ICHPS_PhysPract.txt: Adjacency matrix for the physician clinic network
+ICHPS_PhysPractBin.txt: Adjacency matrix for the physician clinic network
 
 ICHPS_nodecov.dat: Physician attribute data set for the physician clinic network
 
