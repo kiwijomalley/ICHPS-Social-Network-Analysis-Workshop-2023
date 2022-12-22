@@ -4,7 +4,7 @@ Workshop on Social Network Analysis for 2023 International Conference on Health 
 
 The following files are supplemental files for the workshop. Participants are welcome to review these and experiment with the code and data prior to the workshop. 
 
-ICHPS_ShortCourse_2023.pdf: Slides containing expanded descriptions including extracts of code and output for the examples discussed in the workshop
+ICHPS_ShortCourseSupp_2023.pdf: Slides containing expanded descriptions including extracts of code and output for the examples discussed in the workshop
 
 WorkshopICHPS2023.R: R Code for performing descriptive analyses presented in workshop for the physician clinic network example
 
