@@ -18,5 +18,7 @@ The R scripts contain multiple analyses. Users may extract and adapt segments of
 
 References:
 Keating, N. L., Ayanian, J. Z., Cleary, P. D., and Marsden, P. V. (2007), Factors affecting influential discussions among physicians: a social network analysis of a primary care practice, Journal of general internal medicine, 22, 794-798
+
 O'Malley, A. J. and Marsden, P. V. (2008), The Analysis of Social Networks, Health Services & Outcomes Research Methodology, 8, 222-269
+
 Bobak, C. A., Zhao, Y., Levy, J. J., and O’Malley, A. J. (2022). GRANDPA: GeneRAtive Network sampling using Degree and Property Augmentation applied to the analysis of partially confidential healthcare networks. arXiv.2211.15000
