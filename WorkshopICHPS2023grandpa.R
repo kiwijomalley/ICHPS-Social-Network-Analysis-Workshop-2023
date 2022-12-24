@@ -36,6 +36,7 @@ covdata <- vertex_attr(physNet)
 
 #Network object comes with in-built color and size attributes for plotting
 plot(physNet)
+#The above plot is not that nice so we will use igraph
 
 #However, we can reset these and make a new plot
 V(physNet)$color2 <- as.numeric(covdata$CommunityLabel) #Color nodes by community membership
@@ -62,15 +63,15 @@ plot(physNet,
      edge.arrow.size=0.3)
 dev.copy2pdf(file="PhysNet_grandpa2.pdf", width=6, height=6) #to file
 
-#summarizing the network
+#summarizing the network using igraph
 size <- length(physNet$name) #Number of physicians in network (608)
-degree <- degree(physNet) #There is a long degree as network is undirected
+degree <- igraph::degree(physNet) #There is a long degree as network is undirected
 centralization <- centralize(degree,theoretical.max=608,normalized=TRUE)
 trans <- transitivity(physNet) #Transitivity for network as a whole
 loc_trans <- transitivity(physNet,type="local") #Get node specific transitivity
-cent_bet <- betweenness(physNet) #Betweenness centrality
+cent_bet <- igraph::betweenness(physNet) #Betweenness centrality
 cent_eig <- eigen_centrality(physNet)$value #Eigenvector centrality; multiple components might cause problems?
-cent_close <- closeness(physNet) #Closeness centrality
+cent_close <- igraph::closeness(physNet) #Closeness centrality
 cent_bonpow <- power_centrality(physNet) #Bonachich power centrality
 triadc <- motifs(physNet,size=3)
 
@@ -89,8 +90,6 @@ names(covdatamat) <- c("Community","Linchphys")
 #Make network object using network function (tailored for ERGM and latent-space models)
 pnet <- network(netedges,directed=FALSE,matrix.type="edgelist",
                 vertex.attr=covdatared,vertex.attrnames=covnames)
-par(mfrow=c(1,1))
-plot(pnet,mode="fruchtermanreingold",displaylabels=T) #Rough plot (not as nice as igraph plots)
 
 #Comparison of simple ERGM and latent-space models (emulating illustration in slides but for a larger network)
 model0 <- ergm(pnet ~ edges + nodematch("Community",diff=FALSE))
@@ -118,7 +117,7 @@ lmodel2 <- ergmm(pnet ~ nodecov("linchphys") +
 mcmc.diagnostics(lmodel2)
 
 #Assessment of Goodness of fit
-lmodel2.gof <- gof(lmodel2,GOF=~idegree,control=ergmm.control(nsim=100),verbose=T)
+lmodel2.gof <- gof(lmodel2,GOF=~degree,control=ergmm.control(nsim=100),verbose=T)
 plot(lmodel2.gof)
 
 ## Peer Association Models: Cross-sectional analyses using functions in SNA ##
@@ -128,9 +127,9 @@ plot(lmodel2.gof)
 #First, form adjacency matrix
 nr <- size
 relmut <- matrix(0,nrow=nr,ncol=nr)
-for (i in 1:ncol(edges)) {
- relmut[edges[i,1],edges[i,2]] <- 1
- relmut[edges[i,2],edges[i,1]] <- 1
+for (i in 1:ncol(netedges)) {
+ relmut[netedges[i,1],netedges[i,2]] <- 1
+ relmut[netedges[i,2],netedges[i,1]] <- 1
 }
 
 #Scale rows of adjacency matrix so that row sums = 1
