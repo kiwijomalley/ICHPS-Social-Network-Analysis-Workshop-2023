@@ -2,6 +2,8 @@
 
 Workshop on Social Network Analysis for 2023 International Conference on Health Policy Statistics in Scottsdale Arizona, USA. Presented January 9, 2023 by James O'Malley (James.OMalley@Dartmouth.edu)
 
+Update: The file ICHPS_ShortCourse_2023.pdf contains the final version of the slides for the workshop. It is slightly updated from the version that Christina Link distributed by email at the start of January.
+
 The following files are supplemental files for the workshop. Participants are welcome to review these and experiment with the code and data prior to the workshop. 
 
 ICHPS_ShortCourseSupp_2023.pdf: Slides containing expanded descriptions including extracts of code and output for the examples discussed in the workshop
@@ -18,7 +20,7 @@ ICHPS_PhysPractBin.txt: Adjacency matrix for the physician clinic network
 
 ICHPS_nodecov.dat: Physician attribute data set for the physician clinic network
 
-The physician clinic network is described in Keating et al (2007) and re-analyzed in O'Malley and Marsden (2008). It is a small network containing 33 physicians. The network in the grandpa package is based on a bipartite patient-physician encounter network data set. However, for confidentiality, the actual network (and attributes) are replaced with an approximate randomly drawn network of the same size generated using the augmented multiple attribute network model described in Bobak et al (2022) and presented in a poster at the conference.
+The physician clinic network is described in Keating et al (2007) and re-analyzed in O'Malley and Marsden (2008). It is a small network containing 33 physicians. The network in the grandpa package is based on a bipartite patient-physician encounter network data set. However, for confidentiality, the actual network (and attributes) are replaced with an approximate randomly drawn network of the same size generated using the augmented multiple attribute network model described in Bobak et al (2022) and presented in a poster at the conference by co-author Yifan Zhao.
 
 The R scripts contain multiple analyses. Users may extract and adapt segments of code for their own purposes. They are heavily commented and should be self explanatory to follow, especially with the aid of the slides from the workshop.
 
